@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { hotels } from './data/index';
+import { typeHotels } from './data/index';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title: string = 'Hi on Angular course';
+  public hotels: object[] = hotels;
+  public selectedHotel: object = hotels[0];
+  public hotelType: string = typeHotels[0];
+  public hotelName: string;
+
+  public setSelectedHotel(event: any): void {
+    this.selectedHotel = event;
+    this.hotelName = event;
+  }
+
+  public setHotelType(event: string): void {
+    this.hotelType = event;
+    this.hotelName = '';
+  }
 }
